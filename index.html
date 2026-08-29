@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For You ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Kalam:wght@400;700&display=swap');
+:root{--red:#8d3035;--redDark:#74252b;--cream:#fff9ec;--paper:#fffdf5;--ink:#49363a;--blue:#66899a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--red);color:var(--ink);font-family:'Patrick Hand',cursive;overflow-x:hidden}
+.check{background-color:#fff5e9;background-image:linear-gradient(45deg,#a43c42 25%,transparent 25%,transparent 75%,#a43c42 75%),linear-gradient(45deg,#a43c42 25%,transparent 25%,transparent 75%,#a43c42 75%);background-position:0 0,28px 28px;background-size:56px 56px}
+section{min-height:100vh;padding:46px 6vw;display:flex;align-items:center;justify-content:center}
+.paper{width:min(92vw,940px);background:var(--paper);position:relative;box-shadow:0 9px 24px #48151a38;padding:45px 7vw}
+.paper:before{content:"";position:absolute;inset:8px;border:1px dashed #cdaaa2;pointer-events:none}
+.paper>*{position:relative}
+.mono{font-family:monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#8e686b}
+h1,h2,h3,p{margin-top:0}
+button{font-family:inherit}
+#gate{min-height:100vh}
+.gate-paper{min-height:76vh;display:flex;align-items:center;justify-content:center;gap:55px}
+.gate-left{text-align:center;flex:1}
+.gate-left h1{font-size:clamp(3.5rem,8vw,6.5rem);line-height:.8;color:#6f2930;margin:25px 0}
+.gate-left p{font-size:20px}
+.placeholder-photo{width:190px;height:210px;background:#eadfca;border:9px solid white;box-shadow:0 8px 20px #4a252233;display:flex;align-items:center;justify-content:center;color:#a28b7d;font-size:17px;transform:rotate(-3deg);margin:auto}
+.code-side{flex:1;text-align:center}
+.dots{font-size:28px;letter-spacing:10px;color:#7d3b40;margin:10px}
+.keypad{display:grid;grid-template-columns:repeat(3,58px);gap:10px;justify-content:center;margin-top:18px}
+.key{height:48px;border:0;background:transparent;color:#5b3e42;font-size:25px;cursor:pointer}
+.key:hover{background:#f0dfd4;border-radius:50%}
+.msg{height:24px;color:#8d3035;font-size:15px}
+.lock-note{font-size:13px;color:#8c7772;margin-top:20px}
+.locked{display:none!important}
+.hero{min-height:100vh}
+.hero .paper{text-align:center;padding-top:80px;padding-bottom:80px}
+.hero h2{font-size:clamp(3.5rem,10vw,8rem);line-height:.78;color:#7b292f;margin:25px 0}
+.hero p{font-size:clamp(1.2rem,3vw,1.7rem)}
+.sticker{position:absolute;font-size:48px}.s1{left:5%;top:7%;transform:rotate(-15deg)}.s2{right:6%;top:12%;transform:rotate(12deg)}.s3{left:7%;bottom:9%;transform:rotate(9deg)}.s4{right:7%;bottom:7%;transform:rotate(-12deg)}
+.letter-section{background:#fff1e4}
+.letter-wrap{max-width:940px;width:100%;display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:center}
+.photo-placeholder{height:430px;background:#eadfca;border:12px solid white;box-shadow:0 10px 25px #4a25222b;transform:rotate(-3deg);display:flex;align-items:center;justify-content:center;color:#a18a7c;font-size:20px}
+.letter-card{background:#fffdf6;padding:45px 50px;box-shadow:0 6px 18px #4a252218;border:1px solid #e3d3c5}
+.letter-card h2{font-size:clamp(3rem,7vw,5.5rem);line-height:.8;color:#752a31}
+.letter-card p{font-family:Kalam,cursive;font-size:19px;line-height:1.55}
+.nav{display:block;text-align:right;color:#8d3035;text-decoration:underline;margin-top:25px;cursor:pointer}
+.reasons-section{min-height:110vh}
+.reasons-card h2{text-align:center;font-size:clamp(3rem,8vw,6rem);line-height:.8;color:#752a31;margin-bottom:45px}
+.reason{display:grid;grid-template-columns:70px 1fr;gap:15px;padding:22px 0;border-bottom:2px dashed #d6bcb0}
+.reason:last-child{border-bottom:0}.reason b{font-size:31px;color:#a03d44}.reason h3{font-size:28px;margin-bottom:5px}.reason p{font-size:18px;line-height:1.45}
+.gift-section{min-height:100vh;text-align:center}
+.gift-title{color:white;font-size:clamp(3.2rem,9vw,7rem);line-height:.8;margin-bottom:50px;text-shadow:2px 3px #642027}
+.gifts{display:flex;gap:55px;justify-content:center;flex-wrap:wrap}
+.gift{width:150px;height:125px;background:#fff4df;position:relative;cursor:pointer;box-shadow:0 12px 18px #4b182055;transition:.2s}
+.gift:hover{transform:translateY(-10px) rotate(-2deg)}
+.gift:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:17px;transform:translateX(-50%);background:#d39a72}.gift:after{content:"";position:absolute;left:0;right:0;top:36px;height:17px;background:#d39a72}
+.gift span{position:absolute;left:0;right:0;bottom:-42px;color:white;font-size:19px}
+.final-section{background:#fff1e4;text-align:center}
+.final-card{padding:75px 7vw}
+.final-card h2{font-size:clamp(4rem,12vw,9rem);line-height:.75;color:#752a31;margin:25px 0}
+.final-card p{font-size:23px}
+.music{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;border:2px solid white;background:#8d3035;color:white;font-size:14px;z-index:50;cursor:pointer;display:none}
+@media(max-width:720px){.gate-paper{display:block;padding-top:55px}.code-side{margin-top:40px}.letter-wrap{grid-template-columns:1fr}.photo-placeholder{height:330px}.letter-card{padding:35px 25px}.paper{padding-left:6vw;padding-right:6vw}}
+</style>
+</head>
+<body class="locked">
+
+<section id="gate" class="check">
+<div class="paper gate-paper">
+<div class="gate-left">
+<div class="mono">A PRIVATE LITTLE WORLD</div>
+<h1>Enter<br>Passcode</h1>
+<div class="placeholder-photo">YOUR PHOTO</div>
+<p>Only you know the secret. ♡</p>
+</div>
+<div class="code-side">
+<div class="dots" id="dots">○ ○ ○ ○</div>
+<div class="keypad">
+<button class="key" onclick="press(1)">1</button><button class="key" onclick="press(2)">2</button><button class="key" onclick="press(3)">3</button>
+<button class="key" onclick="press(4)">4</button><button class="key" onclick="press(5)">5</button><button class="key" onclick="press(6)">6</button>
+<button class="key" onclick="press(7)">7</button><button class="key" onclick="press(8)">8</button><button class="key" onclick="press(9)">9</button>
+<button class="key" onclick="press('*')">*</button><button class="key" onclick="press(0)">0</button><button class="key" onclick="press('#')">#</button>
+</div>
+<div class="msg" id="msg"></div>
+<div class="lock-note">Enter the 4-digit code to unlock everything.</div>
+</div>
+</div>
+</section>
+
+<main id="content" class="locked">
+<section class="hero check">
+<div class="paper">
+<div class="sticker s1">♥</div><div class="sticker s2">✿</div><div class="sticker s3">♡</div><div class="sticker s4">✦</div>
+<div class="mono">02 — your little world</div>
+<h2>For My<br>Favorite Person</h2>
+<p>Because a normal message just wasn't enough. ♡</p>
+<span class="nav" onclick="scrollToId('letter')">Next →</span>
+</div>
+</section>
+
+<section class="letter-section" id="letter">
+<div class="letter-wrap">
+<div class="photo-placeholder">YOUR PHOTO<br>GOES HERE</div>
+<div class="letter-card">
+<div class="mono">03 — a little letter</div>
+<h2>Dear you,</h2>
+<p>I made this because sometimes the simplest things are the hardest to say.</p>
+<p>Thank you for the laughs, the little moments, the memories, and for being the person who can make an ordinary day feel special.</p>
+<p>Keep this somewhere safe. Come back whenever you need a reminder of how loved you are. ♡</p>
+<div class="nav" onclick="scrollToId('reasons')">Next →</div>
+</div>
+</div>
+</section>
+
+<section class="reasons-section check" id="reasons">
+<div class="paper reasons-card">
+<div class="mono">04 — five little things</div>
+<h2>5 Reasons<br>I Love You</h2>
+<div class="reason"><b>01</b><div><h3>Your smile</h3><p>It can change my entire mood without you even trying.</p></div></div>
+<div class="reason"><b>02</b><div><h3>Your laugh</h3><p>One of those sounds I could never get tired of hearing.</p></div></div>
+<div class="reason"><b>03</b><div><h3>The little things</h3><p>The tiny details about you are the ones I remember most.</p></div></div>
+<div class="reason"><b>04</b><div><h3>The way you care</h3><p>You make people feel important. I hope you know how special that is.</p></div></div>
+<div class="reason"><b>05</b><div><h3>Just you</h3><p>No complicated reason. You're my favorite person. ♡</p></div></div>
+<div class="nav" onclick="scrollToId('gifts')">Next →</div>
+</div>
+</section>
+
+<section class="gift-section check" id="gifts">
+<div>
+<div class="mono" style="color:#ffe9df">05 — choose one</div>
+<h2 class="gift-title">Choose your Gift</h2>
+<div class="gifts">
+<div class="gift" onclick="pick('A hug')"></div>
+<div class="gift" onclick="pick('A date')"></div>
+<div class="gift" onclick="pick('One more memory')"></div>
+</div>
+</div>
+</section>
+
+<section class="final-section">
+<div class="paper final-card">
+<div class="mono">06 — last page</div>
+<h2>Still<br>you. ♡</h2>
+<p>Out of everyone, I'm glad it's you.</p>
+<p style="font-family:Kalam;font-size:19px">Keep this little world forever.</p>
+</div>
+</section>
+</main>
+
+<script>
+const CODE='1408';let code='';
+function press(n){
+ if(code.length>=4)return;
+ code+=String(n);
+ document.getElementById('dots').textContent=code.split('').map(()=>'*').join(' ')+' '+Array(4-code.length).fill('○').join(' ');
+ if(code.length===4){
+  if(code===CODE){
+   document.body.classList.remove('locked');
+   document.getElementById('gate').style.display='none';
+   document.getElementById('content').classList.remove('locked');
+   window.scrollTo(0,0);
+  }else{
+   document.getElementById('msg').textContent='Wrong passcode ♡';
+   setTimeout(()=>{code='';document.getElementById('dots').textContent='○ ○ ○ ○';document.getElementById('msg').textContent=''},700);
+  }
+ }
+}
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function pick(x){alert('You picked: '+x+' ♡')}
+</script>
+</body>
+</html>
