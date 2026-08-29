@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For You 🕷️❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Kalam:wght@400;700&display=swap');
+
+:root{
+  --red:#9f2730;
+  --deep:#631923;
+  --cream:#fff7e9;
+  --paper:#fffdf6;
+  --ink:#382a2b;
+  --pink:#e7a0a5;
+  --blue:#315d78;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--red);
+  color:var(--ink);
+  font-family:'Patrick Hand',cursive;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;z-index:-5;
+  background:
+    radial-gradient(circle at 20% 15%,#d35b62 0 2px,transparent 3px),
+    radial-gradient(circle at 80% 30%,#d35b62 0 2px,transparent 3px),
+    linear-gradient(135deg,#7d2029,#a72b35 45%,#681821);
+  background-size:90px 90px,120px 120px,100% 100%;
+}
+.web{
+  position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background-image:
+   linear-gradient(30deg,transparent 48%,#fff 49%,#fff 51%,transparent 52%),
+   linear-gradient(-30deg,transparent 48%,#fff 49%,#fff 51%,transparent 52%),
+   radial-gradient(circle at center,transparent 0 34%,#fff 35% 36%,transparent 37% 100%);
+  background-size:90px 90px;
+}
+section{
+  min-height:100vh;
+  padding:55px 6vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.paper{
+  width:min(92vw,930px);
+  background:var(--paper);
+  padding:55px 7vw;
+  position:relative;
+  box-shadow:0 12px 35px #3a101744;
+}
+.paper:before{
+  content:"";
+  position:absolute;inset:9px;
+  border:2px dashed #d3b4a9;
+  pointer-events:none;
+}
+.paper>*{position:relative}
+.mono{
+  font-family:monospace;
+  font-size:8px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#8e6266;
+}
+h1,h2,h3,p{margin-top:0}
+
+/* PASSCODE */
+#gate{min-height:100vh}
+.gate-paper{
+  min-height:78vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
+}
+.gate-title{text-align:center}
+.gate-title h1{
+  color:var(--red);
+  font-size:clamp(4rem,10vw,7rem);
+  line-height:.75;
+  margin:25px 0;
+}
+.gate-title p{font-size:20px}
+.spider-mini{
+  width:145px;height:145px;margin:25px auto;
+  position:relative;
+  animation:bob 2s ease-in-out infinite;
+}
+.spider-mini .body{
+  position:absolute;width:62px;height:75px;background:#b5222c;
+  border:5px solid #222;border-radius:45% 45% 42% 42%;
+  left:41px;top:38px;
+}
+.spider-mini .head{
+  position:absolute;width:72px;height:72px;background:#bd2630;
+  border:5px solid #222;border-radius:50%;
+  left:36px;top:2px;
+}
+.eye{
+  position:absolute;background:white;border:3px solid #222;
+  width:20px;height:30px;transform:skewY(-15deg);
+}
+.eye.l{left:48px;top:25px}.eye.r{left:82px;top:25px;transform:scaleX(-1) skewY(-15deg)}
+.leg{
+  position:absolute;width:60px;height:6px;background:#222;
+  transform-origin:right center;border-radius:10px;
+}
+.leg.l1{left:-4px;top:55px;transform:rotate(25deg)}
+.leg.l2{left:-8px;top:82px;transform:rotate(5deg)}
+.leg.l3{left:0;top:104px;transform:rotate(-22deg)}
+.leg.r1{right:-4px;top:55px;transform:rotate(-25deg)}
+.leg.r2{right:-8px;top:82px;transform:rotate(-5deg)}
+.leg.r3{right:0;top:104px;transform:rotate(22deg)}
+@keyframes bob{50%{transform:translateY(-9px) rotate(2deg)}}
+.code{text-align:center}
+.dots{font-size:28px;letter-spacing:8px;color:var(--red);min-height:36px}
+.keypad{
+  display:grid;grid-template-columns:repeat(3,58px);
+  gap:9px;justify-content:center;margin-top:15px;
+}
+.key{
+  width:58px;height:48px;border:0;border-radius:50%;
+  background:transparent;color:#55383b;font-size:25px;
+  cursor:pointer;
+}
+.key:hover{background:#f1ddd4}
+.msg{height:25px;color:var(--red);font-size:15px;margin-top:8px}
+
+/* OPENING */
+.hero{text-align:center}
+.hero h2{
+  font-size:clamp(4rem,12vw,9rem);
+  color:var(--red);line-height:.72;margin:25px 0;
+}
+.hero p{font-size:clamp(1.2rem,3vw,1.7rem)}
+.sticker{position:absolute;font-size:48px}
+.s1{left:5%;top:8%;transform:rotate(-12deg)}
+.s2{right:5%;top:12%;transform:rotate(14deg)}
+.s3{left:7%;bottom:9%}.s4{right:7%;bottom:8%;transform:rotate(-15deg)}
+.next{display:inline-block;margin-top:35px;color:var(--red);font-size:20px;text-decoration:underline;cursor:pointer}
+
+/* STORY */
+.story{background:#f7e7d9}
+.story-grid{
+  width:min(94vw,950px);
+  display:grid;grid-template-columns:1fr 1fr;gap:35px;
+}
+.story-card{
+  background:var(--paper);padding:45px;
+  box-shadow:0 9px 25px #54202a20;
+}
+.story-card h2{font-size:clamp(3rem,7vw,5.8rem);line-height:.8;color:var(--deep)}
+.story-card p{font-family:Kalam,cursive;font-size:19px;line-height:1.6}
+
+/* PHOTO — ONLY ONE PHOTO ON THE WEBSITE */
+.photo-section{background:#e9c4c0;flex-direction:column;text-align:center}
+.photo-section h2{
+  font-size:clamp(3.5rem,9vw,7rem);line-height:.8;
+  color:var(--deep);margin:20px 0 45px;
+}
+.photo-frame{
+  width:min(82vw,450px);
+  background:white;padding:13px 13px 58px;
+  box-shadow:0 15px 35px #49171d40;
+  transform:rotate(-3deg);
+}
+.photo-frame img{
+  width:100%;display:block;aspect-ratio:4/5;
+  object-fit:cover;
+}
+.photo-caption{font-size:23px;margin-top:13px}
+.photo-section p{max-width:570px;font-size:20px;line-height:1.5;margin-top:50px}
+
+/* REASONS */
+.reasons{background:var(--red)}
+.reasons .paper h2{
+  color:var(--deep);font-size:clamp(3.5rem,9vw,6.5rem);
+  line-height:.78;text-align:center;margin-bottom:45px;
+}
+.reason{
+  display:grid;grid-template-columns:65px 1fr;
+  padding:22px 0;border-bottom:2px dashed #d5b8ac;
+}
+.reason:last-child{border:0}
+.reason b{font-size:34px;color:var(--red)}
+.reason h3{font-size:28px;margin-bottom:5px}
+.reason p{font-size:18px;line-height:1.45}
+
+/* LETTER */
+.letter{background:#fff0e2}
+.letter-card{max-width:900px}
+.letter-card h2{font-size:clamp(4rem,10vw,7rem);line-height:.75;color:var(--deep)}
+.letter-card p{font-family:Kalam,cursive;font-size:20px;line-height:1.7;max-width:700px}
+.signature{font-size:27px;margin-top:35px}
+
+/* SPIDER HERO SECTION */
+.hero-spider{background:#17212c;color:white;overflow:hidden}
+.hero-spider .paper{
+  background:#f8eee2;
+  color:var(--ink);
+  min-height:75vh;
+  text-align:center;
+}
+.swing{
+  position:absolute;left:8%;top:-20px;
+  width:2px;height:280px;background:#222;
+  transform:rotate(9deg);
+  transform-origin:top;
+  animation:swing 3s ease-in-out infinite;
+}
+.swing:after{
+  content:"";
+  position:absolute;bottom:-75px;left:-35px;
+  width:70px;height:85px;background:#b52630;
+  border:5px solid #222;border-radius:50%;
+  clip-path:polygon(20% 0,80% 0,100% 65%,65% 100%,35% 100%,0 65%);
+}
+.swing:before{
+  content:"";
+  position:absolute;bottom:-35px;left:-18px;
+  width:36px;height:45px;background:#b52630;border:4px solid #222;border-radius:50%;
+}
+@keyframes swing{0%,100%{transform:rotate(9deg)}50%{transform:rotate(-10deg)}}
+.hero-spider h2{font-size:clamp(3.5rem,9vw,7rem);line-height:.8;color:var(--red)}
+.hero-spider p{font-size:22px;max-width:600px;margin:30px auto;line-height:1.5}
+
+/* GIFTS */
+.gifts-section{background:var(--red);text-align:center}
+.gifts-title{color:white;font-size:clamp(3.5rem,10vw,7rem);line-height:.8;margin-bottom:55px}
+.gifts{display:flex;gap:45px;justify-content:center;flex-wrap:wrap}
+.gift{
+  width:155px;height:130px;background:#fff4de;
+  position:relative;cursor:pointer;
+  box-shadow:0 12px 25px #46141b55;
+  transition:.2s;
+}
+.gift:hover{transform:translateY(-10px) rotate(-2deg)}
+.gift:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:18px;transform:translateX(-50%);background:#ce8870}
+.gift:after{content:"";position:absolute;left:0;right:0;top:38px;height:18px;background:#ce8870}
+.gift span{position:absolute;left:0;right:0;bottom:-42px;color:white;font-size:19px}
+
+/* FINAL */
+.final{background:#fff0e2;text-align:center}
+.final h2{font-size:clamp(5rem,14vw,10rem);line-height:.7;color:var(--deep)}
+.final p{font-size:23px;max-width:600px;line-height:1.5}
+
+/* MUSIC */
+.music{
+  position:fixed;right:18px;bottom:18px;z-index:100;
+  width:65px;height:65px;border-radius:50%;
+  border:3px solid white;background:var(--red);
+  color:white;font-size:15px;cursor:pointer;
+  box-shadow:0 8px 22px #0005;
+}
+.music small{display:block;font-size:7px;letter-spacing:.1em}
+
+@media(max-width:720px){
+  .gate-paper,.story-grid{grid-template-columns:1fr}
+  .gate-paper{padding-top:45px}
+  .story-card{padding:32px 25px}
+}
+
+.polaroid-row{
+  width:min(90vw,700px);
+  min-height:430px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:5px auto 20px;
+}
+.small-polaroid{
+  width:min(43vw,280px);
+  background:#fff;
+  padding:10px 10px 42px;
+  box-shadow:0 14px 32px #49171d38;
+  position:relative;
+  transition:transform .35s ease;
+}
+.small-polaroid img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+}
+.small-polaroid div{
+  position:absolute;
+  left:0;right:0;bottom:10px;
+  text-align:center;
+  color:#493336;
+  font-size:19px;
+}
+.p-left{transform:rotate(-7deg) translateX(35px);z-index:1}
+.p-right{transform:rotate(6deg) translateX(-35px);z-index:2}
+.small-polaroid:hover{transform:rotate(0) translateY(-10px) scale(1.03);z-index:5}
+@media(max-width:600px){
+  .polaroid-row{min-height:330px}
+  .small-polaroid{width:43vw;padding:7px 7px 34px}
+  .small-polaroid div{font-size:15px;bottom:7px}
+  .p-left{transform:rotate(-7deg) translateX(20px)}
+  .p-right{transform:rotate(6deg) translateX(-20px)}
+}
+
+.gift-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:#3c1117aa;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+}
+.gift-modal.show{display:flex}
+.gift-note{
+  width:min(88vw,520px);
+  background:#fff8e9;
+  color:#493236;
+  padding:50px 35px 40px;
+  box-shadow:0 18px 50px #2a0b10aa;
+  position:relative;
+  text-align:center;
+  border:2px dashed #c99688;
+  animation:giftIn .28s ease;
+}
+@keyframes giftIn{from{transform:scale(.88) rotate(-2deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.gift-note h3{font-size:clamp(2.5rem,8vw,4.5rem);line-height:.8;color:#8d3035;margin:20px 0}
+.gift-note p{font-size:21px;line-height:1.5}
+.close-gift{
+  position:absolute;right:12px;top:8px;border:0;background:none;
+  font-size:32px;color:#8d3035;cursor:pointer
+}
+.keep-gift{
+  margin-top:28px;border:0;background:#8d3035;color:white;
+  padding:11px 24px;border-radius:30px;font:18px 'Patrick Hand';cursor:pointer
+}
+</style>
+</head>
+<body>
+
+<div class="web"></div>
+
+<!-- ONE passcode screen. No photo and no music file is needed for this screen. -->
+<section id="gate" class="check">
+  <div class="paper gate-paper">
+    <div class="gate-title">
+      <div class="mono">A PRIVATE LITTLE WORLD</div>
+      <div class="spider-mini">
+        <div class="head"></div><div class="body"></div>
+        <div class="eye l"></div><div class="eye r"></div>
+        <div class="leg l1"></div><div class="leg l2"></div><div class="leg l3"></div>
+        <div class="leg r1"></div><div class="leg r2"></div><div class="leg r3"></div>
+      </div>
+      <h1>Before<br>You Enter…</h1>
+      <p>Only you know the secret. ♡</p>
+    </div>
+    <div class="code">
+      <div class="dots" id="dots">○ ○ ○ ○</div>
+      <div class="keypad">
+        <button class="key" onclick="press(1)">1</button><button class="key" onclick="press(2)">2</button><button class="key" onclick="press(3)">3</button>
+        <button class="key" onclick="press(4)">4</button><button class="key" onclick="press(5)">5</button><button class="key" onclick="press(6)">6</button>
+        <button class="key" onclick="press(7)">7</button><button class="key" onclick="press(8)">8</button><button class="key" onclick="press(9)">9</button>
+        <button class="key" onclick="press('*')">*</button><button class="key" onclick="press(0)">0</button><button class="key" onclick="press('#')">#</button>
+      </div>
+      <div class="msg" id="msg"></div>
+      <div class="mono">4-digit secret • unlock to continue</div>
+    </div>
+  </div>
+</section>
+
+<main id="content" style="display:none">
+
+<section class="hero check">
+  <div class="paper">
+    <div class="sticker s1">♥</div><div class="sticker s2">✦</div>
+    <div class="sticker s3">♡</div><div class="sticker s4">✿</div>
+    <div class="mono">01 — welcome to your little world</div>
+    <h2>For My<br>Favorite Person</h2>
+    <p>I could have sent you a message… but you deserve a whole website. ♡</p>
+    <div class="next" onclick="go('story')">open it →</div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="mono">02 — no special occasion</div>
+      <h2>Just<br>because.</h2>
+      <p>There doesn't always have to be a birthday, an anniversary, or a special date.</p>
+      <p>Sometimes I just want to remind you that you're important to me.</p>
+    </div>
+    <div class="story-card">
+      <div class="mono">a tiny reminder</div>
+      <h2 style="font-size:clamp(3rem,7vw,5.8rem)">You make<br>life better.</h2>
+      <p>The random conversations. The stupid jokes. The quiet moments. I wouldn't trade any of them.</p>
+      <p>And somehow, the ordinary days are my favorites when you're part of them.</p>
+      <div class="next" onclick="go('photo')">next →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ONLY ONE IMG TAG IN THE ENTIRE WEBSITE -->
+<section class="photo-section" id="photo">
+  <div class="mono">03 — our little memories</div>
+  <h2>Keep these<br>close. ♡</h2>
+
+  <div class="polaroid-row">
+    <div class="small-polaroid p-left">
+      <img src="photo-memory.jpg" alt="A favorite memory">
+      <div>you, always. ♡</div>
+    </div>
+    <div class="small-polaroid p-right">
+      <img src="photo-passcode.jpg" alt="A couple holding hands">
+      <div>one of my favorites.</div>
+    </div>
+  </div>
+
+  <p>Some pictures are more than pictures. They become tiny pieces of a story we get to keep.</p>
+  <div class="next" onclick="go('reasons')">keep going →</div>
+</section>
+
+<section class="reasons check" id="reasons">
+  <div class="paper">
+    <div class="mono">04 — five little things</div>
+    <h2>5 Reasons<br>I Love You</h2>
+    <div class="reason"><b>01</b><div><h3>Your smile</h3><p>It can change my entire mood without you even knowing.</p></div></div>
+    <div class="reason"><b>02</b><div><h3>Your laugh</h3><p>One of those sounds I could listen to a thousand times.</p></div></div>
+    <div class="reason"><b>03</b><div><h3>The little things</h3><p>The tiny details about you somehow become my favorite memories.</p></div></div>
+    <div class="reason"><b>04</b><div><h3>The way you care</h3><p>You make people feel important. I notice that.</p></div></div>
+    <div class="reason"><b>05</b><div><h3>Just you</h3><p>No complicated explanation. You're my favorite person. ♡</p></div></div>
+    <div class="next" onclick="go('letter')">next →</div>
+  </div>
+</section>
+
+<section class="letter" id="letter">
+  <div class="paper letter-card">
+    <div class="mono">05 — a letter I couldn't text</div>
+    <h2>Dear you,</h2>
+    <p>I don't always know how to put everything I feel into a normal message.</p>
+    <p>So I made this instead — a tiny place where I can leave all the things I sometimes forget to say.</p>
+    <p>Thank you for every laugh, every late-night conversation, every little memory, and every ordinary moment that became special simply because it was with you.</p>
+    <p>If you ever have a bad day, come back here. Let this remind you that you are loved, appreciated, and very, very special to me.</p>
+    <div class="signature">Always yours. ♡</div>
+    <div class="next" onclick="go('spider')">one more thing →</div>
+  </div>
+</section>
+
+<section class="hero-spider" id="spider">
+  <div class="paper">
+    <div class="swing"></div>
+    <div class="mono">06 — your friendly neighborhood surprise</div>
+    <h2>Even superheroes<br>need someone.</h2>
+    <p>And if I had one superpower, I'd use it to make sure you never forget how much you mean to me.</p>
+    <div style="font-size:48px;margin-top:25px">🕷️ ❤️ 🕸️</div>
+    <div class="next" onclick="go('gifts')">your surprise →</div>
+  </div>
+</section>
+
+<section class="gifts-section check" id="gifts">
+  <div class="gift-modal" id="giftModal" aria-hidden="true">
+    <div class="gift-note">
+      <button class="close-gift" onclick="closeGift()">×</button>
+      <div class="mono">a little surprise ♡</div>
+      <h3 id="giftName"></h3>
+      <p id="giftText"></p>
+      <button class="keep-gift" onclick="closeGift()">keep it ♡</button>
+    </div>
+  </div>
+  <div>
+    <div class="mono" style="color:#ffe8df">07 — pick one</div>
+    <h2 class="gifts-title">Choose Your Gift</h2>
+    <div class="gifts">
+      <div class="gift" onclick="pick('A hug','For when you need one — no questions asked. ♡')"><span>open me</span></div>
+      <div class="gift" onclick="pick('A date','Your next favorite memory is waiting. ♡')"><span>open me</span></div>
+      <div class="gift" onclick="pick('One more memory','Because one memory is never enough. ♡')"><span>open me</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <div class="paper">
+    <div class="mono">08 — last page</div>
+    <h2>Still<br>You. ♡</h2>
+    <p>Out of everyone, I'm glad it's you.</p>
+    <p style="font-family:Kalam,cursive">Keep this little world forever.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- Music is optional and appears only after the passcode is unlocked. -->
+<audio id="music" loop preload="none">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+<button class="music" id="musicBtn" style="display:none">▶<small>MUSIC</small></button>
+
+<script>
+const CODE='1408';
+let code='';
+const dots=document.getElementById('dots');
+const msg=document.getElementById('msg');
+const gate=document.getElementById('gate');
+const content=document.getElementById('content');
+const music=document.getElementById('music');
+const musicBtn=document.getElementById('musicBtn');
+
+function drawDots(){
+  dots.textContent=Array.from({length:4},(_,i)=>i<code.length?'●':'○').join(' ');
+}
+function press(n){
+  if(code.length>=4)return;
+  code+=String(n);
+  drawDots();
+  if(code.length===4){
+    if(code===CODE){
+      gate.style.display='none';
+      content.style.display='block';
+      musicBtn.style.display='block';
+      window.scrollTo(0,0);
+    }else{
+      msg.textContent='Wrong passcode ♡';
+      setTimeout(()=>{code='';msg.textContent='';drawDots()},750);
+    }
+  }
+}
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+function pick(name,text){
+  document.getElementById('giftName').textContent=name;
+  document.getElementById('giftText').textContent=text;
+  const modal=document.getElementById('giftModal');
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden','false');
+}
+function closeGift(){
+  const modal=document.getElementById('giftModal');
+  modal.classList.remove('show');
+  modal.setAttribute('aria-hidden','true');
+}
+document.getElementById('giftModal').addEventListener('click',e=>{
+  if(e.target.id==='giftModal')closeGift();
+});
+musicBtn.onclick=()=>{
+  if(music.paused){
+    music.play().then(()=>musicBtn.innerHTML='❚❚<small>MUSIC</small>').catch(()=>{});
+  }else{
+    music.pause();
+    musicBtn.innerHTML='▶<small>MUSIC</small>';
+  }
+};
+drawDots();
+</script>
+</body>
+</html>
