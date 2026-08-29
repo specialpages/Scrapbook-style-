@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For My Favorite Person ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Kalam:wght@400;700&family=DM+Mono:wght@400&display=swap');
+:root{--red:#8d252b;--red2:#a83b40;--paper:#fffaf0;--cream:#f7f0df;--ink:#292321;--pink:#e7a5a7;--blue:#7d9ba7}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--red);color:var(--ink);font-family:'Patrick Hand',cursive;overflow-x:hidden}
+.gingham{background-color:#f5eee1;background-image:linear-gradient(45deg,#8f282e 25%,transparent 25%,transparent 75%,#8f282e 75%),linear-gradient(45deg,#8f282e 25%,transparent 25%,transparent 75%,#8f282e 75%);background-position:0 0,18px 18px;background-size:36px 36px}
+.paper{background:var(--paper);position:relative;box-shadow:0 8px 24px #38121625}
+.paper:before,.paper:after{content:"";position:absolute;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,transparent 0 12px,#8d252b 12px 22px,transparent 22px 34px);opacity:.85}
+.paper:before{top:-5px}.paper:after{bottom:-5px}
+section{min-height:100vh;padding:60px 6vw;display:flex;align-items:center;justify-content:center}
+.hand{font-family:'Patrick Hand',cursive}
+.kalam{font-family:'Kalam',cursive}
+.mono{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase}
+.cover{min-height:100vh;position:relative;overflow:hidden}
+.cover .paper{width:min(88vw,850px);min-height:78vh;padding:70px 8vw;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-.6deg)}
+.tape{position:absolute;width:120px;height:32px;background:#f2cfa1b8;top:25px;left:50%;transform:translateX(-50%) rotate(-3deg);z-index:3}
+.sticker{position:absolute;font-size:55px}
+.s1{top:25px;left:25px;transform:rotate(-14deg)}.s2{right:20px;top:55px;transform:rotate(12deg)}.s3{bottom:25px;left:25px;transform:rotate(8deg)}.s4{right:25px;bottom:25px;transform:rotate(-10deg)}
+.cover h1{font-size:clamp(4rem,13vw,8rem);line-height:.8;color:#24201f;font-weight:700}
+.cover .sub{font-size:clamp(1.2rem,4vw,2rem);margin-top:28px}
+.cover .mini{margin-top:38px;color:#6e5652;font-size:13px}
+.next{margin-top:55px;font-size:15px;text-decoration:underline;cursor:pointer}
+.passcode{background:var(--red);color:white}
+.pass-paper{width:min(90vw,850px);padding:45px 7vw;background:var(--paper);color:var(--ink);text-align:center;position:relative}
+.pass-paper h2{font-size:clamp(2.5rem,8vw,5rem);margin-bottom:30px}
+.pass-photo{width:150px;height:150px;border-radius:6px;object-fit:cover;transform:rotate(-3deg);border:7px solid white;box-shadow:0 8px 20px #0002}
+.dots{font-size:30px;letter-spacing:14px;margin:20px 0}
+.keypad{display:grid;grid-template-columns:repeat(3,55px);gap:12px;justify-content:center;margin-top:15px}
+.key{width:55px;height:45px;border:0;background:transparent;font:25px 'Patrick Hand';cursor:pointer;color:var(--ink)}
+.scrap{background:var(--red);min-height:110vh}
+.page{width:min(92vw,900px);padding:50px 7vw;min-height:75vh;position:relative}
+.page h2{font-size:clamp(3rem,9vw,6rem);line-height:.85;margin-bottom:30px}
+.page p{font-size:clamp(1.1rem,2.7vw,1.45rem);line-height:1.6}
+.postcard{margin:40px auto 0;max-width:720px;border:2px dashed #b38b82;padding:25px;transform:rotate(1deg);background:#fffdf6}
+.postcard p{font-family:'Kalam';font-size:19px}
+.photo-page{background:var(--cream)}
+.photo-layout{width:min(92vw,900px);display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.photo-card{background:white;padding:12px 12px 42px;transform:rotate(-3deg);box-shadow:0 12px 28px #3b202020}
+.photo-card img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.photo-card div{text-align:center;font-size:22px;margin-top:10px}
+.photo-copy h2{font-size:clamp(3rem,8vw,6rem);line-height:.8;margin-bottom:25px}
+.photo-copy p{font-size:20px;line-height:1.55}
+.reasons{background:var(--red)}
+.reasons-page{width:min(92vw,900px);padding:50px 7vw;min-height:78vh}
+.reasons-page h2{font-size:clamp(3rem,9vw,6rem);line-height:.8;text-align:center;margin-bottom:45px}
+.reason{display:grid;grid-template-columns:55px 1fr;gap:15px;padding:20px 0;border-bottom:2px dashed #c5aaa0}
+.reason:last-child{border:0}
+.reason b{font-size:30px;color:#8d252b}
+.reason h3{font-size:25px}.reason p{font-size:17px;line-height:1.45;margin-top:5px}
+.envelope{background:var(--cream);text-align:center}
+.envelope-page{width:min(92vw,850px);min-height:75vh;padding:55px 7vw;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.envelope-shape{width:230px;height:155px;background:#c9696e;position:relative;margin:35px auto;box-shadow:0 12px 25px #3a202022;cursor:pointer}
+.envelope-shape:before{content:"";position:absolute;left:0;top:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:85px solid #e7a0a1}
+.envelope-shape:after{content:"♡";position:absolute;left:0;right:0;bottom:35px;font-size:38px;color:white}
+.envelope-page h2{font-size:clamp(3rem,9vw,6rem);line-height:.8}
+.letter{display:none;max-width:700px;background:#fffdf5;padding:40px 35px;margin-top:25px;border:1px solid #cbb7a9;box-shadow:0 7px 18px #0002}
+.letter.show{display:block}
+.letter p{font-family:'Kalam';font-size:18px;line-height:1.65;text-align:left}
+.gift{background:var(--red);min-height:110vh}
+.gift-page{width:min(92vw,900px);min-height:75vh;padding:50px 7vw;text-align:center}
+.gift-page h2{font-size:clamp(3.5rem,10vw,7rem);line-height:.8;margin-bottom:45px;color:var(--ink)}
+.gifts{display:flex;justify-content:center;gap:35px;flex-wrap:wrap}
+.giftbox{width:150px;height:125px;position:relative;background:#efe4cf;box-shadow:0 12px 22px #35151a30;cursor:pointer;transition:.2s}
+.giftbox:hover{transform:translateY(-8px) rotate(-2deg)}
+.giftbox:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:18px;transform:translateX(-50%);background:#c98675}
+.giftbox:after{content:"";position:absolute;left:0;right:0;top:35px;height:18px;background:#c98675}
+.giftbox span{position:absolute;left:0;right:0;bottom:-42px;font-size:18px;color:#5a3737}
+.final{background:var(--red);text-align:center;min-height:110vh}
+.final-page{width:min(92vw,850px);min-height:75vh;padding:65px 7vw;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.final-page h2{font-size:clamp(4rem,13vw,9rem);line-height:.75}
+.final-page p{font-size:23px;margin-top:35px;max-width:600px}
+.music{position:fixed;right:18px;bottom:18px;width:62px;height:62px;border-radius:50%;border:3px solid #fff;background:#8d252b;color:white;z-index:50;font:14px 'Patrick Hand';box-shadow:0 8px 18px #0005;cursor:pointer}
+.music small{display:block;font:7px 'DM Mono';letter-spacing:.1em}
+@media(max-width:700px){.photo-layout{grid-template-columns:1fr}.page,.reasons-page,.gift-page,.final-page,.envelope-page{padding:42px 6vw}.cover .paper{min-height:82vh}.keypad{grid-template-columns:repeat(3,52px)}}
+
+.lockedContent,.lockedSection{display:none!important}
+body.locked:after{content:"";position:fixed;inset:0;background:#140b0ee8;z-index:45;pointer-events:auto}
+.unlockMsg{position:fixed;z-index:60;left:50%;top:50%;transform:translate(-50%,-50%);display:none;width:min(88vw,500px);padding:28px;background:#fffaf0;color:#292321;text-align:center;box-shadow:0 15px 45px #0006;font-family:'Patrick Hand',cursive}
+body.locked .unlockMsg{display:block}
+.unlockMsg b{font-size:25px}.unlockMsg p{font-size:16px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="unlockMsg"><b>Locked ♡</b><p>Enter the correct 4-digit passcode to open this little world.</p></div>
+<audio id="music" loop><source src="song.mp3" type="audio/mpeg"></audio>
+<button class="music" id="musicBtn">▶<small>MUSIC</small></button>
+
+<section class="passcode gingham" id="pass" class="passcode gingham gate">
+<div class="pass-paper">
+<div class="mono">PRIVATE LITTLE WORLD • 01</div>
+<h2>Before you enter…</h2><p style="font-size:20px;margin:-10px 0 25px;color:#705b58">Only you know the little secret. ♡</p>
+<img class="pass-photo" src="photo.jpg" alt="memory">
+<div class="dots" id="dots">* * * *</div>
+<div class="keypad">
+<button class="key" onclick="press(1)">1</button><button class="key" onclick="press(2)">2</button><button class="key" onclick="press(3)">3</button>
+<button class="key" onclick="press(4)">4</button><button class="key" onclick="press(5)">5</button><button class="key" onclick="press(6)">6</button>
+<button class="key" onclick="press(7)">7</button><button class="key" onclick="press(8)">8</button><button class="key" onclick="press(9)">9</button>
+<button class="key" onclick="press('*')">*</button><button class="key" onclick="press(0)">0</button><button class="key" onclick="press('#')">#</button>
+</div>
+<div class="mono" style="margin-top:25px;color:#856d68">hint: the day we never forget ♡<br><span style="font-size:12px">Enter the 4-digit code to unlock the entire page</span></div>
+</div>
+</section><section class="cover gingham lockedContent" id="start">
+<div class="paper">
+<div class="tape"></div>
+<div class="sticker s1">♡</div><div class="sticker s2">✿</div><div class="sticker s3">♥</div><div class="sticker s4">✦</div>
+<div class="mono">a little website made just for you</div>
+<h1>For My<br>Favorite Person</h1>
+<div class="sub">I didn't need a reason. I just wanted to remind you. ♡</div>
+<div class="mini">photos • letters • little memories • one tiny surprise</div>
+<div class="next" onclick="document.getElementById('pass').scrollIntoView()">NEXT →</div>
+</div>
+</section>
+
+<section class="passcode gingham" id="pass">
+<div class="pass-paper">
+<div class="mono">PRIVATE LITTLE WORLD</div>
+<h2>Enter Passcode</h2>
+<img class="pass-photo" src="photo.jpg" alt="memory">
+<div class="dots" id="dots">* * * *</div>
+<div class="keypad">
+<button class="key" onclick="press(1)">1</button><button class="key" onclick="press(2)">2</button><button class="key" onclick="press(3)">3</button>
+<button class="key" onclick="press(4)">4</button><button class="key" onclick="press(5)">5</button><button class="key" onclick="press(6)">6</button>
+<button class="key" onclick="press(7)">7</button><button class="key" onclick="press(8)">8</button><button class="key" onclick="press(9)">9</button>
+<button class="key" onclick="press('*')">*</button><button class="key" onclick="press(0)">0</button><button class="key" onclick="press('#')">#</button>
+</div>
+<div class="mono" style="margin-top:25px;color:#856d68">hint: the day we never forget ♡</div>
+</div>
+</section>
+
+<section class="scrap gingham lockedContent">
+<div class="page paper">
+<div class="mono">01 — first page</div>
+<h2>Hi, you. ♡</h2>
+<div class="postcard"><p>So I know this is a little dramatic… but normal messages just didn't feel like enough this time.</p><p style="margin-top:20px">So I made you a whole little corner of the internet. You can keep it. Come back to it. And hopefully smile every time you do.</p></div>
+<div class="mono" style="text-align:right;margin-top:35px">NEXT →</div>
+</div>
+</section>
+
+<section class="photo-page lockedContent">
+<div class="photo-layout">
+<div class="photo-card"><img src="photo.jpg" alt="Our favorite memory"><div>one of my favorites ♡</div></div>
+<div class="photo-copy">
+<div class="mono">02 — one memory</div>
+<h2>Keep this one.</h2>
+<p>There are probably a thousand photos I could have chosen. Somehow, this one felt right.</p>
+<p style="margin-top:22px">Maybe because every picture has a story, and this one reminds me how lucky I am that our story exists at all.</p>
+</div>
+</div>
+</section>
+
+<section class="scrap gingham lockedContent">
+<div class="reasons-page paper">
+<div class="mono">03 — things I love</div>
+<h2>Five little<br>reasons.</h2>
+<div class="reason"><b>01</b><div><h3>Your smile</h3><p>Especially the one you try to hide when you're really happy.</p></div></div>
+<div class="reason"><b>02</b><div><h3>Your voice</h3><p>I could listen to you talk about absolutely nothing and still not get bored.</p></div></div>
+<div class="reason"><b>03</b><div><h3>The little things</h3><p>The tiny details about you somehow become my favorite memories.</p></div></div>
+<div class="reason"><b>04</b><div><h3>The way you care</h3><p>You notice things. You remember things. You make people feel important.</p></div></div>
+<div class="reason"><b>05</b><div><h3>Just you</h3><p>No big explanation. You're my favorite person. That's enough.</p></div></div>
+</div>
+</section>
+
+<section class="envelope lockedContent">
+<div class="envelope-page paper">
+<div class="mono">04 — something I couldn't text</div>
+<h2>A letter for you.</h2>
+<div class="envelope-shape" onclick="document.getElementById('letter').classList.toggle('show')"></div>
+<div class="mono">tap the envelope ♡</div>
+<div class="letter" id="letter">
+<p>Dear you,</p>
+<p>Sometimes I wish I could put every good thing you've brought into my life into one sentence. I can't.</p>
+<p>So I'll just say thank you — for the laughs, the random conversations, the quiet moments, and every memory that somehow became important.</p>
+<p>If you ever have a bad day, come back here and remember one thing: somewhere in this world, there is someone who thinks you're pretty incredible.</p>
+<p>Always,</p><p>me ♡</p>
+</div>
+</div>
+</section>
+
+<section class="gift gingham lockedContent">
+<div class="gift-page paper">
+<div class="mono">05 — choose a little surprise</div>
+<h2>Choose<br>your gift.</h2>
+<div class="gifts">
+<div class="giftbox" onclick="alert('You picked: A hug ♡')"><span>open me</span></div>
+<div class="giftbox" onclick="alert('You picked: A date with me ♡')"><span>open me</span></div>
+<div class="giftbox" onclick="alert('You picked: One more memory ♡')"><span>open me</span></div>
+</div>
+</div>
+</section>
+
+<section class="final gingham lockedContent">
+<div class="final-page paper">
+<div class="mono">06 — last page</div>
+<h2>Still<br>you. ♡</h2>
+<p>Out of all the people, all the places, and all the ordinary days… I'm really glad I get to share some of mine with you.</p>
+<div class="mono" style="margin-top:50px">made with love • keep forever</div>
+</div>
+</section>
+
+<script>
+const music=document.getElementById('music'),btn=document.getElementById('musicBtn');
+btn.onclick=()=>{if(music.paused){music.play().then(()=>btn.innerHTML='❚❚<small>MUSIC</small>').catch(()=>{})}else{music.pause();btn.innerHTML='▶<small>MUSIC</small>'}};
+let code='';
+const DEMO_CODE='1408';
+function press(n){
+  if(code.length>=4)return;
+  code+=String(n);
+  document.getElementById('dots').textContent=(code+'****').slice(0,4).split('').map(()=>'*').join(' ');
+  if(code.length===4){
+    if(code===DEMO_CODE){
+      document.body.classList.remove('locked');
+      document.querySelectorAll('.lockedContent').forEach(el=>el.classList.remove('lockedContent'));
+      document.getElementById('start').scrollIntoView({behavior:'smooth'});
+      document.getElementById('dots').textContent='✓ UNLOCKED';
+    }else{
+      document.getElementById('dots').textContent='✕ TRY AGAIN';
+      setTimeout(()=>{code='';document.getElementById('dots').textContent='* * * *'},700);
+    }
+  }
+}
+document.body.classList.add('locked');
+</script>
+</body>
+</html>
